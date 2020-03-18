@@ -83,8 +83,9 @@ def scrape():
     import pandas as pd
     url = "https://space-facts.com/mars/"
     mars_facts = pd.read_html(url)
-    mars_facts = mars_facts[0]
-    mars_facts.set_index(0, inplace=True)
+    mars_facts = mars_facts[1]
+    mars_facts = mars_facts.rename(columns={0: "", 1:"values"})
+    mars_facts.set_index("", inplace=True)
     
     # Turn table to HTML
     mars_facts = mars_facts.to_html()

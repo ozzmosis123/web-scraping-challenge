@@ -7,52 +7,83 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mars App</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+    .important {
+      font-weight: 600;
+      margin-top: 2em;
+    }
+    .middle {
+      text-align: center;
+      font-weight: 600;
+      padding: 1em;
+    }
+  </style>
 </head>
 
 <body>
   <div class="container">
     <div class="row">
-    <div class="col-md-12">
-
-    <div class="jumbotron text-center">
-      <h1>Mission to Mars</h1>
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get latest Mars Data</a></p>
-    </div>
+      <div class="col-md-12">
+        <div class="jumbotron text-center">
+          <h1>Mission to Mars</h1>
+          <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get latest Mars Data</a></p>
+        </div>
      
-      <h1>Latest Mars News</h1>
-      <h2>{{mars.news.title}}</h2>
-      <h3>{{ mars.news.headline }}</h3>
-    </div>
+        <h1 class="important">Latest Mars News</h1>
+        <h2>{{mars.news.title}}</h2>
+        <h4>{{ mars.news.headline }}</h4>
+      </div>  
     </div>
   </div>
    
   <div class="container">
     <div class="row">
       <div class="col-sm-6">
-        <h3>Featured Mars Image</h3>
-        <img src="{{ mars.featured_img_url }}" alt="Mars Featured Image">
+        <h3 class="important">Featured Mars Image</h3>
+        <img src="{{ mars.featured_image_url.featured_image }}" width=100% alt="Mars Featured Image">
       </div>
     
       <div class="col-sm-6">
-        <h3>Current Weather on Mars</h3>
+        <h3 class="important">Current Weather on Mars</h3>
         <p>{{mars.mars_weather.mars_weather}}</p>
-    
+        
+        <h3 class="important">Mars Facts</h3>
         <table border="1" class="dataframe">
           <tbody>
             <tr>
-              <th>{{mars.mars_facts.mars_facts}}</th>
+              <th>{{mars.mars_facts.mars_facts | safe}}</th>
             </tr>
           </tbody>
         </table>
       </div>
     </div> 
   </div>
-    
+  
+  <h1 class="middle">Mars Hemispheres</h1>  
   <div class="container">
-    <div class="col-md-12">
-     <div class="row">
-    <h1>Mars Hemispheres</h1>
-    <img src="{{ mars.hemisphere_image_urls }}" alt="Mars Hemispheres">
+    <div class="row">
+      <div class="col-sm-6">
+        <img src="{{ mars.hemisphere_image_urls[0].img_url }}" width=100% alt="Mars Hemispheres">
+        <h4>{{ mars.hemisphere_image_urls[0].title }}</h4>
+      </div>
+
+      <div class="col-sm-6">
+        <img src="{{ mars.hemisphere_image_urls[1].img_url }}" width=100% alt="Mars Hemispheres">
+        <h4>{{ mars.hemisphere_image_urls[1].title }}</h4>
+      </div>
+    </div>
+     
+    <div class="row">
+      <div class="col-sm-6">
+        <img src="{{ mars.hemisphere_image_urls[2].img_url }}" width=100% alt="Mars Hemispheres">
+        <h4>{{ mars.hemisphere_image_urls[2].title }}</h4>
+      </div>
+
+      <div class="col-sm-6">
+        <img src="{{ mars.hemisphere_image_urls[3].img_url }}" width=100% alt="Mars Hemispheres">
+        <h4>{{ mars.hemisphere_image_urls[3].title }}</h4>
+      </div>
+    </div>
   </div>
     
 </body>
