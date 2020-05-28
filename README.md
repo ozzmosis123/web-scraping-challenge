@@ -2,7 +2,7 @@
 
 A Mars dashboard that updates to the latest planet Mars data from various websites. 
 
-Uses Python Beautiful Soup to scrape data on Mars from various websites. All test code is done on the ipynb notebook file. 
+Uses Python Beautiful Soup to scrape data on Mars from various websites. All test code is done on the mission_to_mars.ipynb notebook file. 
 
 Then the scrape.py file is created that contains all scrape data that was tested in the ipynb notebook.
 
